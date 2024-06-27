@@ -11,9 +11,12 @@
 
 
 int main(){
+    int nbVictoires=0;
+    int nbDefaites=0;
+    char choix;
     srand(time(NULL));
     char* str4=(char*)malloc(S_MAX*sizeof(char));
-    FILE* f=fopen("ods5.txt","r");
+    FILE* f=fopen("mots.txt","r");
 
     int nbmots=0;
     if(f!=NULL){
@@ -25,7 +28,7 @@ int main(){
     
 
     PileMots* pm=initPileMots(nbmots);
-    FILE* fi=fopen("ods5.txt","r");
+    FILE* fi=fopen("mots.txt","r");
 
 
     if(fi!=NULL){
@@ -37,10 +40,22 @@ int main(){
     //printPileMots(pm);
 
     printf("\t\t\t\tJEU DU PENDU\n\n\n");
-    char* rand=MotsRand(pm);
-    //printf("%s\n",rand);
-    char* emot=motsATrouver(rand);
-    TrouverMots(rand,emot);
+
+    do{
+        char* rand=MotsRand(pm);
+        //printf("%s\n",rand);
+        char* emot=motsATrouver(rand);
+        int res=TrouverMots(rand,emot);
+        if(res==1){
+            nbVictoires++;
+        }else{
+            nbDefaites++;
+        }
+        printf("Voulez-vous continuer? (o/n)\n");
+        scanf(" %c",&choix);
+    }while(choix=='o');
+
+    printf("Score final : %d victoires, %d défaites.\n", nbVictoires, nbDefaites);
 
     return 0;
 

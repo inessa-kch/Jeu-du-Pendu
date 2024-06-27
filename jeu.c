@@ -94,6 +94,84 @@ int ExisteC(char* mot,char c){
 }
 
 
+void penduAscii(int nbessaies) {
+    switch (nbessaies) {
+        case 6:
+            printf(" +---+\n");
+            printf(" |   |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("=========\n");
+            break;
+        case 5:
+            printf(" +---+\n");
+            printf(" |   |\n");
+            printf(" O   |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("=========\n");
+            break;
+        case 4:
+            printf(" +---+\n");
+            printf(" |   |\n");
+            printf(" O   |\n");
+            printf(" |   |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("=========\n");
+            break;
+        case 3:
+            printf(" +---+\n");
+            printf(" |   |\n");
+            printf(" O   |\n");
+            printf("/|   |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("=========\n");
+            break;
+        case 2:
+            printf(" +---+\n");
+            printf(" |   |\n");
+            printf(" O   |\n");
+            printf("/|\\  |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("=========\n");
+            break;
+        case 1:
+            printf(" +---+\n");
+            printf(" |   |\n");
+            printf(" O   |\n");
+            printf("/|\\  |\n");
+            printf("/    |\n");
+            printf("     |\n");
+            printf("=========\n");
+            break;
+        case 0:
+            printf(" +---+\n");
+            printf(" |   |\n");
+            printf(" O   |\n");
+            printf("/|\\  |\n");
+            printf("/ \\  |\n");
+            printf("     |\n");
+            printf("=========\n");
+            break;
+        default:
+            printf(" +---+\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("     |\n");
+            printf("=========\n");
+            break;
+    }
+}
+
+
 
 int TrouverMots(char* mot,char* motmasque){
     char lettre;
@@ -112,7 +190,7 @@ int TrouverMots(char* mot,char* motmasque){
             printf("\n\n\nNon, cette lettre n'est pas dans le mot :(\n");
             printf("Mot à trouver: %s\n", motmasque);
             printf("Il vous reste %d coups.\n",nbessaies);
-
+            penduAscii(nbessaies);
             if(nbessaies== 0){
                 printf("\n\n\nLe mot était : %s\n",mot);
                 printf("Vous n'avez plus de coups, vous êtes mort X_X\n\n\n");
@@ -130,13 +208,14 @@ int TrouverMots(char* mot,char* motmasque){
             }
             printf("\n\n\nMot a trouver: %s\n", motmasque);
             printf("Il vous reste %d coups.\n",nbessaies);
+            penduAscii(nbessaies);
             if (strcmp(motmasque,mot)!=0){
                 printf("\n\nVotre lettre : ");
             }
         }
     }while(strcmp(motmasque,mot)!=0);
     printf("\n\n\nBravo!! Vous avez trouver le mot secret, c'était bien %s !\n\n\n", mot);
-    return 0;
+    return 1;
 }
 
 

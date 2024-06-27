@@ -19,6 +19,7 @@ void printPileMots(PileMots *pm);
 char* MotsRand(PileMots* pm);
 char* motsATrouver(char* mot);
 int ExisteC(char* mot,char c);
+void penduAscii(int nbessaies);
 int TrouverMots(char* mot,char* motmasque);
 int countmot(PileMots* pm);
 
